@@ -24,9 +24,21 @@ class ViewController: UIViewController {
         
         cardsUp = 0
     }
+    
+    func startNewGame() {
+        clearCards()
+        playCount = 0
+        btnNewGame.isHidden = true
+        self.playCounter.text = "\(playCount)"
+    }
     @IBOutlet weak var playCounter: UILabel!
+    @IBOutlet weak var btnNewGame: UIButton!
     
     @IBOutlet var buttonCollection: [UIButton]!
+    
+    @IBAction func newGame_click(_ sender: Any) {
+        startNewGame()
+    }
     
     @IBAction func toggleCard(_ sender: UIButton) {
         
@@ -57,7 +69,7 @@ class ViewController: UIViewController {
             }
             
         }
-        
+        btnNewGame.isHidden = false
         playCount += 1
         self.playCounter.text = "\(playCount)"
     }
